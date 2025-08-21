@@ -4,68 +4,168 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Abschlussfeier der 10. Klasse – Wilhelm Lorenz Realschule</title>
+
+<!-- Schriften -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
-  :root{--bg:#f7f2ea;--wood:#f2e6d8;--accent:#2f5233;--gold:#9c7b40;--text:#2b2b2b}
+  :root{
+    --bg:#f7f2ea;          /* Papier / Creme */
+    --wood1:#f6eadc;       /* helles Holz */
+    --wood2:#f1e3d3;
+    --accent:#2f5233;      /* Efeu-Grün */
+    --gold:#9c7b40;
+    --text:#2b2b2b;
+    --card:#ffffff;
+    --line:#e8dccb;
+  }
   *{box-sizing:border-box}
-  html,body{margin:0;background:var(--bg);color:var(--text);
-    font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-  .hero{background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,.92)),
-         repeating-linear-gradient(90deg,#f6eadc 0 4px,#f1e3d3 4px 8px);
-         padding:clamp(24px,6vw,64px) clamp(16px,5vw,48px);border-bottom:1px solid #e8dccb}
-  .hero h1{margin:0 0 8px;font-size:clamp(24px,6vw,40px);font-weight:800;letter-spacing:.2px}
-  .lead{margin:6px 0 0;font-size:clamp(14px,3.5vw,18px);opacity:.9}
-  .btn{display:inline-block;margin-top:18px;background:var(--accent);color:#fff;padding:12px 18px;
-       border-radius:999px;text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(47,82,51,.2)}
-  .container{padding:clamp(18px,5vw,40px)}
-  .card{background:#fff;border:1px solid #eee3d2;border-radius:18px;padding:clamp(16px,4vw,28px);
-        box-shadow:0 10px 30px rgba(0,0,0,.04);margin-bottom:16px}
+  html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+  h1,h2,h3{font-family:"Playfair Display",serif}
+
+  /* Oben: Mini-Navigation */
+  .nav{
+    position:sticky; top:0; z-index:20;
+    backdrop-filter:saturate(160%) blur(6px);
+    background-color:rgba(255,255,255,.8);
+    border-bottom:1px solid var(--line);
+  }
+  .nav .inner{display:flex;gap:14px;align-items:center;justify-content:center;padding:10px 14px;flex-wrap:wrap}
+  .nav a{color:var(--accent);text-decoration:none;font-weight:700}
+  .nav a:hover{text-decoration:underline}
+
+  /* Hero mit Holzoptik und großem Startbild-Platzhalter */
+  .hero{
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.92)),
+      repeating-linear-gradient(90deg, var(--wood1) 0 4px, var(--wood2) 4px 8px);
+    padding: clamp(22px, 6vw, 64px) clamp(16px, 5vw, 48px);
+    border-bottom:1px solid var(--line);
+  }
+  .hero h1{margin:0 0 10px;font-size:clamp(26px,6vw,44px);font-weight:800;letter-spacing:.2px}
+  .lead{margin:8px 0 0;font-size:clamp(14px,3.6vw,18px);opacity:.9}
+  .btn{
+    display:inline-block;margin-top:18px;background:var(--accent);color:#fff;
+    padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:700;
+    box-shadow:0 6px 18px rgba(47,82,51,.18)
+  }
+  .pills{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+  .pill{padding:6px 12px;border-radius:999px;background:#fff5e6;color:var(--gold);border:1px solid #f0e0c6;font-weight:700}
+
+  .container{padding: clamp(18px, 5vw, 40px); max-width: 1000px; margin: 0 auto;}
+  .card{
+    background:var(--card); border:1px solid #eee3d2; border-radius:18px;
+    padding: clamp(16px, 4vw, 26px); box-shadow:0 10px 30px rgba(0,0,0,.04); margin-bottom:16px
+  }
   h2{margin:0 0 10px;font-size:clamp(20px,4.8vw,28px)}
-  ul{margin:0;padding-left:18px}
+
+  /* Timeline fürs Programm */
+  .timeline{position:relative;padding-left:22px}
+  .timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:3px;background:linear-gradient(var(--gold),#e7d2a8)}
+  .timeline li{list-style:none;margin:10px 0 14px;position:relative}
+  .timeline li::before{
+    content:"";position:absolute;left:-2px;top:6px;width:13px;height:13px;border-radius:50%;
+    background:radial-gradient(#fff, #fff 40%, var(--gold) 41%);border:2px solid #f0e0c6
+  }
+
+  /* Menü-Labels */
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+  .tag{font-size:12px;padding:4px 8px;border-radius:999px;border:1px solid #e8dccb;background:#fff}
+  .tag.v{border-color:#9bd39b}
+  .tag.vegan{border-color:#66c17a}
+  .tag.fisch{border-color:#9bc6e8}
+  .tag.fleisch{border-color:#e0a6a6}
+
+  /* QR-Holz-Badge – rund, nur mit CSS, ohne Bilddatei */
+  .qrwrap{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:12px}
+  .wood-badge{
+    width:200px;height:200px;border-radius:50%;
+    background:
+      radial-gradient(circle at 50% 50%, #f5ebde 0 56%, transparent 57%),
+      radial-gradient(circle at 50% 50%, #eadbc7 59%, transparent 60%),
+      radial-gradient(circle at 50% 50%, #e4d2be 69%, transparent 70%),
+      radial-gradient(circle at 50% 50%, #dbc8b1 79%, transparent 80%),
+      radial-gradient(circle at 50% 50%, #d4bfa6 89%, transparent 90%),
+      repeating-linear-gradient(90deg, var(--wood1) 0 6px, var(--wood2) 6px 12px);
+    box-shadow:0 0 0 6px #f1e6d8 inset, 0 8px 24px rgba(0,0,0,.06);
+    display:grid;place-items:center;position:relative;border:6px solid #f1e6d8;
+  }
+  .wood-badge .qr{width:132px;height:132px;background:#fff;border-radius:10px;padding:6px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+  .wood-badge::after, .wood-badge::before{
+    content:"";position:absolute;border-radius:50%;
+    background:#f7f7f7;border:1px solid #dedede;opacity:.9
+  }
+  .wood-badge::after{width:10px;height:10px;top:16px;left:28px}
+  .wood-badge::before{width:12px;height:12px;bottom:22px;right:32px}
+  .scan{font-weight:800;color:var(--accent);font-size:18px}
+
   .footer{padding:28px 16px 56px;text-align:center;color:#666}
-  .qr{display:flex;gap:16px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:10px}
-  .pill{display:inline-block;padding:6px 12px;border-radius:999px;background:#fff5e6;color:var(--gold);
-        border:1px solid #f0e0c6;font-weight:700;margin-right:6px}
-  .photo{width:100%;border-radius:18px;border:1px solid #eee3d2;
-         background:linear-gradient(135deg,#f2e6d8,#fff);aspect-ratio:16/9;
-         display:grid;place-items:center;color:#9c7b40;font-weight:700}
+  .credits{margin-top:10px;font-size:12px}
 </style>
 </head>
 <body>
-  <section class="hero">
+
+  <!-- Mini-Navigation -->
+  <nav class="nav">
+    <div class="inner">
+      <a href="#start">Start</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#menue">Menü</a>
+      <a href="#fotos">Fotos</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+  </nav>
+
+  <!-- Hero / Start -->
+  <header id="start" class="hero">
     <h1>Abschlussfeier der 10. Klasse – Wilhelm Lorenz Realschule</h1>
-    <p class="lead">📅 Freitag, 17. Juli 2026 · 🕢 Beginn 17:30 (Einlass 17:00) · 📍 Stadthalle Ettlingen, Baden-Württemberg</p>
+    <p class="lead">📅 Freitag, 17. Juli 2026&nbsp;&nbsp;·&nbsp;&nbsp;🕢 Beginn 17:30 (Einlass 17:00)&nbsp;&nbsp;·&nbsp;&nbsp;📍 Stadthalle Ettlingen, Baden-Württemberg</p>
     <a class="btn" href="#ablauf">Zum Ablauf</a>
-    <div style="margin-top:12px">
-      <span class="pill">Festlich & elegant</span>
+    <div class="pills">
+      <span class="pill">Festlich &amp; elegant</span>
       <span class="pill">Fingerfood-Buffet</span>
       <span class="pill">ca. 450 Gäste</span>
     </div>
-  </section>
+  </header>
 
   <main class="container">
-    <div class="card photo">Startfoto – später durch euer eigenes Bild ersetzen</div>
+    <!-- großes Startfoto-Platzhalter -->
+    <section class="card" style="aspect-ratio:16/9;display:grid;place-items:center;border:1px solid #eee3d2;border-radius:18px;background:linear-gradient(135deg,#f2e6d8,#fff);color:var(--gold);font-weight:700">
+      Startfoto – später durch euer eigenes Bild ersetzen
+    </section>
 
+    <!-- Ablauf / Timeline -->
     <section id="ablauf" class="card">
       <h2>🗓️ Ablauf</h2>
-      <ul>
+      <ul class="timeline">
         <li><strong>17:30 Uhr – Sektempfang 🥂</strong></li>
         <li>Begrüßung – <em>wird ergänzt</em></li>
         <li>Buffet-Eröffnung – <em>wird ergänzt</em></li>
-        <li>Reden & Ehrungen – <em>wird ergänzt</em></li>
-        <li>Musik & Tanz – <em>wird ergänzt</em></li>
+        <li>Reden &amp; Ehrungen – <em>wird ergänzt</em></li>
+        <li>Musik &amp; Tanz – <em>wird ergänzt</em></li>
       </ul>
     </section>
 
+    <!-- Menü -->
     <section id="menue" class="card">
       <h2>🍽️ Menü (Fingerfood)</h2>
-      <p>Kennzeichnungen: 🥦 vegetarisch · 🌿 vegan · 🐄 Fleisch · 🐟 Fisch · 🌾 Gluten · 🥛 Milch</p>
-      <ul>
+      <p>Kennzeichnungen:</p>
+      <div class="tags">
+        <span class="tag v">🥦 vegetarisch</span>
+        <span class="tag vegan">🌿 vegan</span>
+        <span class="tag fleisch">🐄 Fleisch</span>
+        <span class="tag fisch">🐟 Fisch</span>
+        <span class="tag">🌾 Gluten</span>
+        <span class="tag">🥛 Milch</span>
+      </div>
+      <ul style="margin-top:10px">
         <li>Fingerfood 1 – <em>wird ergänzt</em> 🥦</li>
         <li>Fingerfood 2 – <em>wird ergänzt</em> 🌿</li>
         <li>Fingerfood 3 – <em>wird ergänzt</em> 🐄</li>
       </ul>
     </section>
 
+    <!-- Fotos hochladen -->
     <section id="fotos" class="card">
       <h2>📸 Fotos hochladen</h2>
       <p>Hier können Gäste nach der Feier ihre schönsten Momente hochladen.</p>
@@ -73,26 +173,30 @@
       <small>Tipp: Google-Drive Ordner (Freigabe „Jeder mit Link darf hochladen“), Dropbox File Request oder Padlet.</small>
     </section>
 
+    <!-- Kontakt -->
     <section id="kontakt" class="card">
       <h2>📬 Kontakt Orga-Team</h2>
       <p>E-Mail: <a href="mailto:orga10@schule.de">orga10@schule.de</a><br/>Telefon: 01234 / 567890</p>
     </section>
   </main>
 
+  <!-- Footer mit eingebautem „runden Holz-QR“ -->
   <footer class="footer">
     <div>Scanne den Code, um diese Seite wiederzufinden:</div>
-    <div class="qr">
-      <img id="qrimg" alt="QR – Scan mich" width="180" height="180" style="border-radius:50%; border:6px solid #f1e6d8" />
-      <div style="font-weight:800;color:var(--accent);font-size:20px">„Scan mich“</div>
+    <div class="qrwrap">
+      <div class="wood-badge">
+        <img id="qrimg" class="qr" alt="QR – Scan mich" />
+      </div>
+      <div class="scan">„Scan mich“</div>
     </div>
-    <div style="margin-top:10px;font-size:12px;">© 2026 Wilhelm Lorenz Realschule – Orga-Team Abschlussfeier</div>
+    <div class="credits">© 2026 Wilhelm Lorenz Realschule – Orga-Team Abschlussfeier</div>
   </footer>
 
   <script>
-    // QR wird automatisch aus der aktuellen Seiten-URL erzeugt.
+    // QR automatisch aus der aktuellen Seiten-URL erzeugen (kein Nachpflegen nötig)
     const url = encodeURIComponent(window.location.href);
     document.getElementById('qrimg').src =
-      `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${url}`;
+      `https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${url}`;
   </script>
 </body>
 </html>
