@@ -5,26 +5,94 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Abschlussfeier der 10. Klasse – Wilhelm Lorenz Realschule</title>
 <style>
-  :root{
-    --bg:#f7f2ea; --wood:#f2e6d8; --accent:#2f5233; --gold:#9c7b40; --text:#2b2b2b;
-  }
-  *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--text);
+  :root{--bg:#f7f2ea;--wood:#f2e6d8;--accent:#2f5233;--gold:#9c7b40;--text:#2b2b2b}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--text);
     font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-  .hero{
-    background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.92)),
-                repeating-linear-gradient(90deg,#f6eadc 0 4px,#f1e3d3 4px 8px);
-    padding:clamp(24px,6vw,64px) clamp(16px,5vw,48px); border-bottom:1px solid #e8dccb;
-  }
-  .hero h1{margin:0 0 8px; font-size:clamp(24px,6vw,40px); font-weight:800; letter-spacing:.2px}
-  .lead{margin:6px 0 0; font-size:clamp(14px,3.5vw,18px); opacity:.9}
-  .btn{display:inline-block; margin-top:18px; background:var(--accent); color:#fff; padding:12px 18px;
-       border-radius:999px; text-decoration:none; font-weight:700; box-shadow:0 6px 18px rgba(47,82,51,.2)}
+  .hero{background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,.92)),
+         repeating-linear-gradient(90deg,#f6eadc 0 4px,#f1e3d3 4px 8px);
+         padding:clamp(24px,6vw,64px) clamp(16px,5vw,48px);border-bottom:1px solid #e8dccb}
+  .hero h1{margin:0 0 8px;font-size:clamp(24px,6vw,40px);font-weight:800;letter-spacing:.2px}
+  .lead{margin:6px 0 0;font-size:clamp(14px,3.5vw,18px);opacity:.9}
+  .btn{display:inline-block;margin-top:18px;background:var(--accent);color:#fff;padding:12px 18px;
+       border-radius:999px;text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(47,82,51,.2)}
   .container{padding:clamp(18px,5vw,40px)}
-  .card{background:#fff; border:1px solid #eee3d2; border-radius:18px; padding:clamp(16px,4vw,28px);
-        box-shadow:0 10px 30px rgba(0,0,0,.04); margin-bottom:16px}
-  h2{margin:0 0 10px; font-size:clamp(20px,4.8vw,28px)}
-  ul{margin:0; padding-left:18px}
-  .footer{padding:28px 16px 56px; text-align:center; color:#666}
-  .qr{display:flex; gap:16px; align-items:center; justify-content:center; flex-wrap:wrap; margin-top:10px}
-  .pill{display:inline-block; padding:6px 12px; border-radius:999px; background:#fff5e6; color:var(--gold);
-        border:1px
+  .card{background:#fff;border:1px solid #eee3d2;border-radius:18px;padding:clamp(16px,4vw,28px);
+        box-shadow:0 10px 30px rgba(0,0,0,.04);margin-bottom:16px}
+  h2{margin:0 0 10px;font-size:clamp(20px,4.8vw,28px)}
+  ul{margin:0;padding-left:18px}
+  .footer{padding:28px 16px 56px;text-align:center;color:#666}
+  .qr{display:flex;gap:16px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:10px}
+  .pill{display:inline-block;padding:6px 12px;border-radius:999px;background:#fff5e6;color:var(--gold);
+        border:1px solid #f0e0c6;font-weight:700;margin-right:6px}
+  .photo{width:100%;border-radius:18px;border:1px solid #eee3d2;
+         background:linear-gradient(135deg,#f2e6d8,#fff);aspect-ratio:16/9;
+         display:grid;place-items:center;color:#9c7b40;font-weight:700}
+</style>
+</head>
+<body>
+  <section class="hero">
+    <h1>Abschlussfeier der 10. Klasse – Wilhelm Lorenz Realschule</h1>
+    <p class="lead">📅 Freitag, 17. Juli 2026 · 🕢 Beginn 17:30 (Einlass 17:00) · 📍 Stadthalle Ettlingen, Baden-Württemberg</p>
+    <a class="btn" href="#ablauf">Zum Ablauf</a>
+    <div style="margin-top:12px">
+      <span class="pill">Festlich & elegant</span>
+      <span class="pill">Fingerfood-Buffet</span>
+      <span class="pill">ca. 450 Gäste</span>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="card photo">Startfoto – später durch euer eigenes Bild ersetzen</div>
+
+    <section id="ablauf" class="card">
+      <h2>🗓️ Ablauf</h2>
+      <ul>
+        <li><strong>17:30 Uhr – Sektempfang 🥂</strong></li>
+        <li>Begrüßung – <em>wird ergänzt</em></li>
+        <li>Buffet-Eröffnung – <em>wird ergänzt</em></li>
+        <li>Reden & Ehrungen – <em>wird ergänzt</em></li>
+        <li>Musik & Tanz – <em>wird ergänzt</em></li>
+      </ul>
+    </section>
+
+    <section id="menue" class="card">
+      <h2>🍽️ Menü (Fingerfood)</h2>
+      <p>Kennzeichnungen: 🥦 vegetarisch · 🌿 vegan · 🐄 Fleisch · 🐟 Fisch · 🌾 Gluten · 🥛 Milch</p>
+      <ul>
+        <li>Fingerfood 1 – <em>wird ergänzt</em> 🥦</li>
+        <li>Fingerfood 2 – <em>wird ergänzt</em> 🌿</li>
+        <li>Fingerfood 3 – <em>wird ergänzt</em> 🐄</li>
+      </ul>
+    </section>
+
+    <section id="fotos" class="card">
+      <h2>📸 Fotos hochladen</h2>
+      <p>Hier können Gäste nach der Feier ihre schönsten Momente hochladen.</p>
+      <p><a class="btn" href="#" title="Später euren Upload-Link einfügen!">Foto-Upload (Platzhalter)</a></p>
+      <small>Tipp: Google-Drive Ordner (Freigabe „Jeder mit Link darf hochladen“), Dropbox File Request oder Padlet.</small>
+    </section>
+
+    <section id="kontakt" class="card">
+      <h2>📬 Kontakt Orga-Team</h2>
+      <p>E-Mail: <a href="mailto:orga10@schule.de">orga10@schule.de</a><br/>Telefon: 01234 / 567890</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>Scanne den Code, um diese Seite wiederzufinden:</div>
+    <div class="qr">
+      <img id="qrimg" alt="QR – Scan mich" width="180" height="180" style="border-radius:50%; border:6px solid #f1e6d8" />
+      <div style="font-weight:800;color:var(--accent);font-size:20px">„Scan mich“</div>
+    </div>
+    <div style="margin-top:10px;font-size:12px;">© 2026 Wilhelm Lorenz Realschule – Orga-Team Abschlussfeier</div>
+  </footer>
+
+  <script>
+    // QR wird automatisch aus der aktuellen Seiten-URL erzeugt.
+    const url = encodeURIComponent(window.location.href);
+    document.getElementById('qrimg').src =
+      `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${url}`;
+  </script>
+</body>
+</html>
