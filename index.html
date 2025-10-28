@@ -158,7 +158,29 @@
   font-style: italic;
   color: var(--text);
   background: var(--wood2);
-}</style>
+/* --- Startseiten-Bilder kompakter und elegant --- */
+.hero-grid img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem 0;
+}
+
+.hero-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}}</style>
 </head>
 <body>
 <!-- Startseiten-Bilder (4er-Galerie in Holzoptik) -->
