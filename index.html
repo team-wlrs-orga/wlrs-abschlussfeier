@@ -71,8 +71,40 @@
 }
 
 /* Galerie-Titel */
-# 
-   
+.gal-title {
+  text-align: center;
+  color: #b38b5d;
+  font-family: "Georgia", serif;
+  margin: 0 0 1rem 0;
+}
+ .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+}
+
+.gallery figure {
+  background: #f5ede0;
+  border: 5px solid #c8a77b;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,.15);
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+
+.gallery img {
+  width: 100%;
+  max-width: 220px;
+  height: 180px;
+  object-fit: cover;
+}
+
+.gallery figure:hover {
+  transform: scale(1.04);
+  border-color: #b38b5d;
+  box-shadow: 0 6px 15px rgba(0,0,0,.25);
+}  
 </style>
 </head>
 <body>
@@ -80,7 +112,7 @@
 
   <!-- Hauptbereich: Galerie als Startbereich -->
 <section id="galerie" class="card" style="margin-top: 0; padding-top: 1rem;">
-  <h2 style="text-align:center; color:#b38b5d; font-family:'Georgia',serif;">Impressionen der Abschlussfeier</h2>
+  <h2 class="gal-title">Impressionen der Abschlussfeier</h2>
   <div class="gallery">
     <figure><img src="assets/foto1.jpg" alt="Galerie Bild 1"><figcaption>Impressionen</figcaption></figure>
     <figure><img src="assets/IMG-20250923-WA0003.jpg" alt="Galerie Bild 2"></figure>
