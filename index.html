@@ -147,6 +147,105 @@
   border-color: #b38b5d;
   box-shadow: 0 6px 15px rgba(0,0,0,.25);
 }  
+ /* ===== Modern & lebendig (dezent) ===== */
+
+/* Farben & Basics */
+:root{
+  --accent: #2f735f;        /* frisches, gedecktes Grün */
+  --accent-ink: #1f4c3e;
+  --paper: #fff8ef;
+  --line: #ead9c5;
+}
+
+/* Smooth Scroll & Anker-Offset (damit Header nix überdeckt) */
+html{ scroll-behavior: smooth; }
+section[id]{ scroll-margin-top: 84px; }
+
+/* Sticky Top-Navigation modernisieren */
+.nav{
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,248,239,.86);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+  transition: box-shadow .25s ease;
+}
+.nav.scrolled{ box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+.nav .inner{
+  display:flex; gap:10px; align-items:center; justify-content:center;
+  padding: 10px 16px; flex-wrap: wrap;
+}
+.nav a{
+  --pad: 9px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: var(--accent-ink);
+  text-decoration: none;
+  font-weight: 700;
+  transition: background-color .2s ease, transform .15s ease, color .2s ease;
+}
+.nav a:hover{
+  background: #e9f3ef;
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+.nav a.is-active{
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Kleines Helfer-Script-Hook: wenn gescrolled, klasse .scrolled auf .nav setzen */
+ /* Cards & Inhalte – mehr Luft + feiner Lift */
+.card{
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: clamp(16px, 3.5vw, 28px);
+  box-shadow: 0 8px 22px rgba(0,0,0,.05);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.08);
+}
+
+/* Section-Überschriften mit Akzent-Linie */
+.card > h2{
+  display:inline-block;
+  margin: 0 0 12px;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  letter-spacing:.2px;
+  border-bottom: 3px solid #c8a77b;   /* Holz-Goldton */
+  padding-bottom: 6px;
+}
+
+/* Buttons modernisieren (nutzt deine vorhandene .btn) */
+.btn{
+  background: var(--accent);
+  color:#fff;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  display:inline-block;
+  box-shadow: 0 8px 18px rgba(47,115,95,.22);
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+}
+.btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(47,115,95,.26);
+  background:#2b6a57;
+}
+
+/* Mehr Raum zwischen Sektionen */
+.container > .card{ margin-bottom: clamp(14px, 3.2vw, 24px); }
+
+/* Galerie – minimal frischer (falls nicht schon gesetzt) */
+.gallery img{
+  border-color:#c8a77b;
+  box-shadow: 0 6px 14px rgba(0,0,0,.12);
+}
+.gallery figure:hover{ transform: translateY(-3px) scale(1.01); } 
 </style>
 </head>
 <body
