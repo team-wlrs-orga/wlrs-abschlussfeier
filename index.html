@@ -361,5 +361,17 @@ section[id]{ scroll-margin-top: 84px; }
     document.getElementById('qrimg').src =
       `https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${url}`;
   </script>
-</body>
+<script>
+  const nav = document.querySelector('.nav');
+  const onScroll = () => {
+    if (!nav) return;
+    if (window.scrollY > 8) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+</script></body>
 </html>
