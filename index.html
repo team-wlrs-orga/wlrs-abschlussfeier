@@ -9,182 +9,59 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-  :root{
-    --bg:#f7f2ea;          /* Papier / Creme */
-    --wood1:#f6eadc;       /* helles Holz */
-    --wood2:#f1e3d3;
-    --accent:#2f5233;      /* Efeu-Grün */
-    --gold:#9c7b40;
-    --text:#2b2b2b;
-    --card:#ffffff;
-    --line:#e8dccb;
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-  h1,h2,h3{font-family:"Playfair Display",serif}
-
-  /* Oben: Mini-Navigation */
-  .nav{
-    position:sticky; top:0; z-index:20;
-    backdrop-filter:saturate(160%) blur(6px);
-    background-color:rgba(255,255,255,.8);
-    border-bottom:1px solid var(--line);
-  }
-  .nav .inner{display:flex;gap:14px;align-items:center;justify-content:center;padding:10px 14px;flex-wrap:wrap}
-  .nav a{color:var(--accent);text-decoration:none;font-weight:700}
-  .nav a:hover{text-decoration:underline}
-
-  /* Hero mit Holzoptik und großem Startbild-Platzhalter */
-  .hero{
-    background:
-      linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.92)),
-      repeating-linear-gradient(90deg, var(--wood1) 0 4px, var(--wood2) 4px 8px);
-    padding: clamp(22px, 6vw, 64px) clamp(16px, 5vw, 48px);
-    border-bottom:1px solid var(--line);
-  }
-  .hero h1{margin:0 0 10px;font-size:clamp(26px,6vw,44px);font-weight:800;letter-spacing:.2px}
-  .lead{margin:8px 0 0;font-size:clamp(14px,3.6vw,18px);opacity:.9}
-  .btn{
-    display:inline-block;margin-top:18px;background:var(--accent);color:#fff;
-    padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:700;
-    box-shadow:0 6px 18px rgba(47,82,51,.18)
-  }
-  .pills{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
-  .pill{padding:6px 12px;border-radius:999px;background:#fff5e6;color:var(--gold);border:1px solid #f0e0c6;font-weight:700}
-
-  .container{padding: clamp(18px, 5vw, 40px); max-width: 1000px; margin: 0 auto;}
-  .card{
-    background:var(--card); border:1px solid #eee3d2; border-radius:18px;
-    padding: clamp(16px, 4vw, 26px); box-shadow:0 10px 30px rgba(0,0,0,.04); margin-bottom:16px
-  }
-  h2{margin:0 0 10px;font-size:clamp(20px,4.8vw,28px)}
-
-  /* Timeline fürs Programm */
-  .timeline{position:relative;padding-left:22px}
-  .timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:3px;background:linear-gradient(var(--gold),#e7d2a8)}
-  .timeline li{list-style:none;margin:10px 0 14px;position:relative}
-  .timeline li::before{
-    content:"";position:absolute;left:-2px;top:6px;width:13px;height:13px;border-radius:50%;
-    background:radial-gradient(#fff, #fff 40%, var(--gold) 41%);border:2px solid #f0e0c6
-  }
-
-  /* Menü-Labels */
-  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
-  .tag{font-size:12px;padding:4px 8px;border-radius:999px;border:1px solid #e8dccb;background:#fff}
-  .tag.v{border-color:#9bd39b}
-  .tag.vegan{border-color:#66c17a}
-  .tag.fisch{border-color:#9bc6e8}
-  .tag.fleisch{border-color:#e0a6a6}
-
-  /* QR-Holz-Badge – rund, nur mit CSS, ohne Bilddatei */
-  .qrwrap{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:12px}
-  .wood-badge{
-    width:200px;height:200px;border-radius:50%;
-    background:
-      radial-gradient(circle at 50% 50%, #f5ebde 0 56%, transparent 57%),
-      radial-gradient(circle at 50% 50%, #eadbc7 59%, transparent 60%),
-      radial-gradient(circle at 50% 50%, #e4d2be 69%, transparent 70%),
-      radial-gradient(circle at 50% 50%, #dbc8b1 79%, transparent 80%),
-      radial-gradient(circle at 50% 50%, #d4bfa6 89%, transparent 90%),
-      repeating-linear-gradient(90deg, var(--wood1) 0 6px, var(--wood2) 6px 12px);
-    box-shadow:0 0 0 6px #f1e6d8 inset, 0 8px 24px rgba(0,0,0,.06);
-    display:grid;place-items:center;position:relative;border:6px solid #f1e6d8;
-  }
-  .wood-badge .qr{width:132px;height:132px;background:#fff;border-radius:10px;padding:6px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
-  .wood-badge::after, .wood-badge::before{
-    content:"";position:absolute;border-radius:50%;
-    background:#f7f7f7;border:1px solid #dedede;opacity:.9
-  }
-  .wood-badge::after{width:10px;height:10px;top:16px;left:28px}
-  .wood-badge::before{width:12px;height:12px;bottom:22px;right:32px}
-  .scan{font-weight:800;color:var(--accent);font-size:18px}
-
-  .footer{padding:28px 16px 56px;text-align:center;color:#666}
-  .credits{margin-top:10px;font-size:12px}
-/* --- Galerie & Startseitenbilder --- */
+ /* --- Startbilder (Hero) als kleine Kacheln ------------------------------ */
 .hero-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 18px;
-  padding: 24px;
-  background: var(--wood1);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  padding: 16px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .hero-grid img {
   width: 100%;
-  height: 100%;
+  height: 180px;
   object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  border-radius: 10px;
+  border: 4px solid #c8a77b; /* Holzrahmen */
+  background: #f5ede0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hero-grid img:hover {
   transform: scale(1.03);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
+/* --- Galerie-Bereich (flexibel für viele Bilder) ------------------------ */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  padding: 24px;
-}
-
-.gallery figure {
-  background: var(--card);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery figure:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-}
-
-
-  
-
-.hero-grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 1.5rem 0;
-}
-
-.hero/* --- Galerie-Bereich: harmonisch mit Startseite --- */
-.gallery{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-  padding: 1.5rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  padding: 20px;
   justify-items: center;
 }
 
-.gallery img{
+.gallery img {
   width: 100%;
-  max-width: 220px;
   height: 180px;
   object-fit: cover;
-  border: 5px solid #c8a77b;     /* Holzrahmen */
+  border: 5px solid #c8a77b; /* Holzrahmen */
   border-radius: 10px;
   background: #f5ede0;
-  box-shadow: 0 4px 10px rgba(0,0,0,.15);
-  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.gallery img:hover{
+.gallery img:hover {
   transform: scale(1.04);
-  border-color: #b38b5d;
-  box-shadow: 0 6px 15px rgba(0,0,0,.25);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
-.gallery figcaption{
+/* Galerie-Beschriftung */
+.gallery figcaption {
   padding: 10px;
   text-align: center;
   font-style: italic;
@@ -192,16 +69,10 @@
   background: var(--wood2);
 }
 
-/* Galerie-Überschrift schick zentriert */
-#galerie h2{
-  text-align: center;
-  font-family: "Georgia", serif;
-  color: #b38b5d;
-  margin-bottom: 1rem;
-}-grid img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-}}</style>
+/* Galerie-Titel */
+# 
+   
+</style>
 </head>
 <body>
 <!-- Startseiten-Bilder (4er-Galerie in Holzoptik) -->
