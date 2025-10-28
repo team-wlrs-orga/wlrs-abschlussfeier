@@ -194,6 +194,33 @@ section[id]{ scroll-margin-top: 84px; }
 }
 
 /* Kleines Helfer-Script-Hook: wenn gescrolled, klasse .scrolled auf .nav setzen */
+ 
+ /* Sticky-Navi sichtbar machen */
+.nav{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.92); /* leicht transparent-weiß */
+  backdrop-filter: blur(3px);          /* sanfter Glas-Effekt (optional) */
+  -webkit-backdrop-filter: blur(3px);
+  box-shadow: none;
+  transition: background .25s ease, box-shadow .25s ease;
+}
+
+/* Beim Scrollen ein zarter Schatten */
+.nav.scrolled{
+  box-shadow: 0 6px 14px rgba(0,0,0,.12);
+  background: rgba(255,255,255,0.95);
+}
+
+/* Innenlayout (falls noch nicht vorhanden) */
+.nav .inner{
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  padding: .6rem 0;
+}
  /* Cards & Inhalte – mehr Luft + feiner Lift */
 .card{
   background: var(--paper);
