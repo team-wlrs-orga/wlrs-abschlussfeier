@@ -362,7 +362,19 @@ section[id]{ scroll-margin-top: 84px; }
 }
 
 .note{ font-size: .9rem; color: #666; }
-
+/* Hinweise / Datenschutz – dezente Gestaltung */
+#hinweise{ margin-top: 12px; }
+#hinweise .note-list{
+  list-style: disc inside;
+  margin: .4rem 0 0;
+  padding-left: 0;
+}
+#hinweise .note-list li{ margin: 6px 0; }
+#hinweise a{
+  color: var(--accent);
+  text-decoration: underline;
+}
+#hinweise a:hover{ text-decoration: none; }
 /* kleines „kopiert“-Toast */
 .copied{
   position: fixed; bottom: 14px; left: 50%;
@@ -550,6 +562,18 @@ section[id]{ scroll-margin-top: 84px; }
 
 <!-- Kleines Toast für „kopiert“ -->
 <div id="copied" class="copied" aria-hidden="true">E-Mail kopiert ✅</div>
+<!-- Hinweise / Datenschutz -->
+<section id="hinweise" class="card">
+  <h2>🛡️ Hinweise & Datenschutz</h2>
+  <ul class="note-list">
+    <li>Diese Webseite dient ausschließlich der Information rund um die Abschlussfeier 2026 der Wilhelm-Lorenz-Realschule.</li>
+    <li>Es werden keine personenbezogenen Daten erhoben oder gespeichert.</li>
+    <li>Fotos werden nur mit Zustimmung der abgebildeten Personen bzw. deren Erziehungsberechtigten veröffentlicht.</li>
+    <li>Bei Fragen oder Anliegen wendet euch bitte an 
+      <a href="mailto:wlrs-orgateam@web.de">wlrs-orgateam@web.de</a>.
+    </li>
+  </ul>
+</section>
   </main>
 
   <!-- Footer mit eingebautem „runden Holz-QR“ -->
