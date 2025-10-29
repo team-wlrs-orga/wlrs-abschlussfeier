@@ -9,6 +9,29 @@
  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
+ /* Ablauf / Timeline Stil */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.timeline li {
+  padding: .4rem 0;
+  border-left: 3px solid var(--line);
+  padding-left: .8rem;
+}
+.timeline li strong {
+  display: inline-block;
+  min-width: 7rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.hint {
+  font-size: .9rem;
+  color: #666;
+  margin-top: .6rem;
+  line-height: 1.4;
+}
   /* Sanftes Einblenden des Startbanners */
 #startbanner {
   opacity: 0;
@@ -380,35 +403,42 @@ section[id]{ scroll-margin-top: 84px; }
     
 
     <!-- Ablauf / Timeline -->
-    <section id="ablauf" class="card">
-      <h2>🗓️ Ablauf</h2>
-      <ul class="timeline">
-        <li><strong>17:30 Uhr – Sektempfang 🥂</strong></li>
-        <li>Begrüßung – <em>wird ergänzt</em></li>
-        <li>Buffet-Eröffnung – <em>wird ergänzt</em></li>
-        <li>Reden &amp; Ehrungen – <em>wird ergänzt</em></li>
-        <li>Musik &amp; Tanz – <em>wird ergänzt</em></li>
-      </ul>
-    </section>
+  <section id="ablauf" class="card">
+  <h2>🗓️ Ablauf</h2>
+  <ul class="timeline">
+    <li><strong>ab 17:30 Uhr</strong> Einlass & Sektempfang 🍾</li>
+    <li><strong>ab 18:00 Uhr</strong> Programm – <em>genaue Reihenfolge folgt</em></li>
+    <li><strong>ca. 20:00 Uhr</strong> Pause & Fingerfood</li>
+  </ul>
+  <p class="hint">
+    Während der Pause bringen die Schüler:innen das Fingerfood auf Platten an die Tische.  
+    Bitte gebt kurz Platz, damit sie sich ohne Stress zwischen den Reihen bewegen können. 😊
+  </p>
+</section>
 
     <!-- Menü -->
     <section id="menue" class="card">
-      <h2>🍽️ Menü (Fingerfood)</h2>
-      <p>Kennzeichnungen:</p>
-      <div class="tags">
-        <span class="tag v">🥦 vegetarisch</span>
-        <span class="tag vegan">🌿 vegan</span>
-        <span class="tag fleisch">🐄 Fleisch</span>
-        <span class="tag fisch">🐟 Fisch</span>
-        <span class="tag">🌾 Gluten</span>
-        <span class="tag">🥛 Milch</span>
-      </div>
-      <ul style="margin-top:10px">
-        <li>Fingerfood 1 – <em>wird ergänzt</em> 🥦</li>
-        <li>Fingerfood 2 – <em>wird ergänzt</em> 🌿</li>
-        <li>Fingerfood 3 – <em>wird ergänzt</em> 🐄</li>
-      </ul>
-    </section>
+  <h2>🍴 Menü (Fingerfood)</h2>
+  <p>
+    Es gibt kein festes Menü. In der Pause bringen die Schüler:innen 
+    Fingerfood auf Platten direkt an die Tische. 
+    Bitte gebt kurz Platz, damit sie das Essen ohne Stress verteilen können. 😊
+  </p>
+
+  <p><strong>Kennzeichnungen:</strong></p>
+  <div class="tags">
+    <span class="tag v">🥦 vegetarisch</span>
+    <span class="tag vegan">🌿 vegan</span>
+    <span class="tag fleisch">🍗 Fleisch</span>
+    <span class="tag fisch">🐟 Fisch</span>
+    <span class="tag">🌾 Gluten</span>
+    <span class="tag">🥛 Milch</span>
+  </div>
+
+  <ul class="food" style="margin-top:10px;">
+    <li><em>wird ergänzt</em></li>
+  </ul>
+</section>
 
     <!-- Hauptbereich: Galerie als Startbereich -->
     <section id="galerie" class="card" style="margin-top: 0; padding-top: 1rem;">
