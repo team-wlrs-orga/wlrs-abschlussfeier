@@ -51,6 +51,73 @@
   color: #f3e8d1;           /* sanftes Cremeweiß, harmonisch zum Bild */
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5); /* etwas Schatten für bessere Sichtbarkeit */
 }
+ /* --- Startbanner: Layout, Overlay, Typo --- */
+#startbanner{
+  position: relative;
+  width: 100%;
+  margin: 0 0 1.2rem 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+  opacity: 0;                   /* nutzt deine fadeInBanner-Animation */
+  animation: fadeInBanner 1.6s ease-in forwards;
+}
+
+#startbanner img{
+  display: block;
+  width: 100%;
+  height: clamp(260px, 45vh, 560px);
+  object-fit: cover;
+  filter: saturate(.96) contrast(1.02);
+}
+
+/* weiches Verlaufs-Overlay für bessere Lesbarkeit */
+#startbanner::after{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,.10) 0%,
+    rgba(0,0,0,.25) 55%,
+    rgba(0,0,0,.45) 100%
+  );
+  pointer-events:none;
+}
+
+.banner-text{
+  position:absolute; inset:0;
+  display:grid; place-content:center;
+  text-align:center;
+  padding: clamp(12px, 3vw, 28px);
+}
+
+/* Titel & Unterzeile – weich & elegant */
+.banner-title{
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  letter-spacing: .5px;
+  color: #ffffff;
+  font-size: clamp(28px, 5.2vw, 62px);
+  line-height: 1.05;
+  text-shadow: 0 2px 16px rgba(0,0,0,.35);
+  margin: 0 0 .35rem 0;
+  opacity: 0;
+  animation: fadeInText 2.0s ease-out forwards;
+}
+
+.banner-sub{
+  font-family: "Lora", serif;
+  font-weight: 400;
+  font-style: italic;
+  color: #f2f3f4;
+  font-size: clamp(15px, 2.6vw, 24px);
+  letter-spacing: .2px;
+  text-shadow: 0 2px 12px rgba(0,0,0,.35);
+  margin: 0;
+  opacity: 0;
+  animation: fadeInText 2.0s ease-out forwards;
+  animation-delay: .15s; /* leicht versetzt zum Titel */
+}
  /* --- Startbilder (Hero) als kleine Kacheln ------------------------------ */
 .hero-grid {
   display: grid;
@@ -277,11 +344,11 @@ section[id]{ scroll-margin-top: 84px; }
 </head>
 <body
  <!-- Startbanner-Bereich -->
-<section id="startbanner" style="position: relative; width: 100%; height: 55vh; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); margin-bottom: 2rem;">
-  <img src="assets/Abschlussfeier 2025.jpg" alt="Startfoto Abschlussfeier" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(70%);">
-  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fff; text-align: center;">
-    <h1 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin: 0;">Abschlussfeier der 10. Klasse</h1>
-    <h2 style="font-family: 'Inter', sans-serif; font-size: 1.3rem; font-weight: 400; margin-top: 0.5rem;">Wilhelm-Lorenz-Realschule · <span id="jahr">2026</span></h2>
+<section id="startbanner">
+  <img src="assets/Abschlussfeier 2025.jpg" alt="Startfoto Abschlussfeier">
+  <div class="banner-text">
+    <h1 class="banner-title">Abschlussfeier der 10. Klasse</h1>
+    <h2 class="banner-sub">Wilhelm-Lorenz-Realschule · 2026</h2>
   </div>
 </section>
 
