@@ -396,6 +396,26 @@ section[id]{ scroll-margin-top: 84px; }
   display:inline-block; padding:2px 8px; border-radius:999px;
   background: var(--accent, #2f735f); color:#fff; font-size:.85rem;
 }
+ /* Footer */
+#footer {
+  text-align: center;
+  font-size: .9rem;
+  color: #666;
+  margin-top: 2rem;
+  padding: 1rem 0;
+  border-top: 1px solid #ddd;
+  background: #f9f9f9;
+}
+
+#footer a {
+  color: var(--accent, #2f735f);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#footer a:hover {
+  text-decoration: underline;
+}
 </style>
 </head>
 <body
@@ -543,7 +563,18 @@ section[id]{ scroll-margin-top: 84px; }
     </div>
     <div class="credits">© 2026 Wilhelm Lorenz Realschule – Orga-Team Abschlussfeier</div>
   </footer>
+<!-- Footer -->
+<footer id="footer">
+  <p>© <span id="year"></span> Wilhelm-Lorenz-Realschule | 
+    <a href="mailto:wlrs-orgateam@web.de">Kontakt</a> | 
+    <a href="#hinweise">Datenschutzhinweis</a>
+  </p>
+</footer>
 
+<script>
+  // Automatisch das aktuelle Jahr einfügen
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
   <script>
     // QR automatisch aus der aktuellen Seiten-URL erzeugen (kein Nachpflegen nötig)
     const url = encodeURIComponent(window.location.href);
