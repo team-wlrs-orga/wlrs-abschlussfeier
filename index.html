@@ -379,6 +379,23 @@ section[id]{ scroll-margin-top: 84px; }
 #fotos {
   display: none;
 }
+
+
+/* Elegantes Einblenden für den Fotos-Bereich (später aktivierbar) */
+@keyframes fadeInFotos {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+#fotos.fade-in {
+  display: block;
+  animation: fadeInFotos 1s ease-in-out forwards;
+}
  /* kleines „kopiert“-Toast */
 .copied{
   position: fixed; bottom: 14px; left: 50%;
