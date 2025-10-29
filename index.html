@@ -353,7 +353,27 @@ section[id]{ scroll-margin-top: 84px; }
   box-shadow: 0 12px 24px rgba(47,115,95,.26);
   background:#2b6a57;
 }
+/* Kontakt – Zusatzstile */
+.btn-ghost{
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  font-weight: 600;
+}
 
+.note{ font-size: .9rem; color: #666; }
+
+/* kleines „kopiert“-Toast */
+.copied{
+  position: fixed; bottom: 14px; left: 50%;
+  transform: translateX(-50%) scale(.96);
+  background: rgba(0,0,0,.82); color: #fff;
+  padding: 8px 14px; border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.18);
+  opacity: 0; pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease;
+}
+.copied.show{ opacity: 1; transform: translateX(-50%) scale(1); }
 /* Mehr Raum zwischen Sektionen */
 .container > .card{ margin-bottom: clamp(14px, 3.2vw, 24px); }
 
@@ -462,9 +482,26 @@ section[id]{ scroll-margin-top: 84px; }
 
     <!-- Kontakt -->
     <section id="kontakt" class="card">
-      <h2>📬 Kontakt Orga-Team</h2>
-      <p>E-Mail: <a href="mailto:orga10@schule.de">orga10@schule.de</a><br/>Telefon: 01234 / 567890</p>
-    </section>
+  <h2>📫 Kontakt Orga-Team</h2>
+
+  <p>Fragen zur Abschlussfeier? Schreib uns gerne eine E-Mail.</p>
+
+  <!-- Mailadresse wird per JS zusammengesetzt (Anti-Spam) -->
+  <p>
+    <a id="mail" class="btn" href="#" rel="nofollow noopener">E-Mail schreiben</a>
+    <button id="copyMail" type="button" class="btn btn-ghost">Adresse kopieren</button>
+  </p>
+
+  <!-- Anzeige der Adresse (wird per JS befüllt) -->
+  <p>
+    <span id="mailText" data-user="wlrs-orgateam" data-domain="web.de">wird geladen…</span>
+  </p>
+
+  <small class="note">Bitte keine sensiblen Daten per Mail senden.</small>
+</section>
+
+<!-- Kleines Toast für „kopiert“ -->
+<div id="copied" class="copied" aria-hidden="true">E-Mail kopiert ✅</div>
   </main>
 
   <!-- Footer mit eingebautem „runden Holz-QR“ -->
@@ -497,5 +534,32 @@ section[id]{ scroll-margin-top: 84px; }
   };
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
+</script><script>
+  // Mailadresse zusammenbauen (Anti-Spam)
+  const mailSpan  = document.getElementById('mailText');
+  const user      = mailSpan?.dataset.user || '';
+  const domain    = mailSpan?.dataset.domain || '';
+  const addr      = `${user}@${domain}`;
+
+  if (mailSpan)  mailSpan.textContent = addr;
+
+  const mailLink  = document.getElementById('mail');
+  if (mailLink){
+    const subj = encodeURIComponent('WLRS Abschlussfeier 2026 – Anfrage');
+    mailLink.href = `mailto:${addr}?subject=${subj}`;
+  }
+
+  // Kopieren + Toast
+  const copyBtn = document.getElementById('copyMail');
+  const toast   = document.getElementById('copied');
+  if (copyBtn){
+    copyBtn.addEventListener('click', async () => {
+      try{
+        await navigator.clipboard.writeText(addr);
+        toast?.classList.add('show');
+        setTimeout(() => toast?.classList.remove('show'), 1200);
+      }catch(e){}
+    });
+  }
 </script></body>
 </html>
