@@ -375,7 +375,19 @@ section[id]{ scroll-margin-top: 84px; }
   text-decoration: underline;
 }
 #hinweise a:hover{ text-decoration: none; }
-/* Fotos-Bereich vorerst ausblenden */
+/* Abschnitts-Trenner (Slogan) */
+.divider{
+  text-align:center;
+  padding:36px 0;
+  font-style:italic;
+  font-size:1.15rem;
+  letter-spacing:.3px;
+  color:#555;
+  background:#f8f8f8;
+  border-top:1px solid #ddd;
+  border-bottom:1px solid #ddd;
+}
+ /* Fotos-Bereich vorerst ausblenden */
 #fotos {
   display: none;
 }
@@ -449,6 +461,19 @@ section[id]{ scroll-margin-top: 84px; }
 #footer a:hover {
   text-decoration: underline;
 }
+/* Abschnitts-Trenner (Slogan) */
+.divider {
+  text-align: center;
+  padding: 36px 0;
+  font-style: italic;
+  font-size: 1.15rem;
+  letter-spacing: .3px;
+  color: #555;
+  background: #f8f8f8;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.05); /* optional, für weichen Effekt */
+}
 </style>
 </head>
 <body
@@ -467,7 +492,7 @@ section[id]{ scroll-margin-top: 84px; }
     <div class="inner">
       <a href="#start" class="is-active">Start</a>
       <a href="#ablauf">Ablauf</a>
-      <a href="#menue">Menü</a>
+     <a href="#menue">Speisen & Getränke</a>
      <a href="#hinweise">Hinweise</a>
       <a href="#fotos">Fotos</a>
       <a href="#kontakt">Kontakt</a>
@@ -502,10 +527,20 @@ section[id]{ scroll-margin-top: 84px; }
     Bitte gebt kurz Platz, damit sie sich ohne Stress zwischen den Reihen bewegen können. 😊
   </p>
 </section>
+   </section>  <!-- Ende: Ablauf -->
+
+<!-- Trenner -->
+<section class="divider">
+  <p>✨ Ein Abend – voller Erinnerungen ✨</p>
+</section>
+
+<!-- Menü -->
+<section id="menue" class="card">
+  ...
 
     <!-- Menü -->
     <section id="menue" class="card">
-  <h2>🍴 Menü (Fingerfood)</h2>
+  <h2>🥂 Speisen & Getränke (Fingerfood)</h2>
   <p>
     Es gibt kein festes Menü. In der Pause bringen die Schüler:innen 
     Fingerfood auf Platten direkt an die Tische. 
@@ -526,7 +561,15 @@ section[id]{ scroll-margin-top: 84px; }
     <li><em>wird ergänzt</em></li>
   </ul>
 </section>
-   <!-- Hinweise -->
+   <!-- Trenner -->
+<section class="divider">
+  <p>🍽️ Pause & Genuss – Fingerfood an den Tischen 🍽️</p>
+</section>
+
+<!-- Hinweise -->
+<section id="hinweise" class="card">
+  ...
+ <!-- Hinweise -->
 <section id="hinweise" class="card">
   <h2>ℹ️ Hinweise</h2>
   <ul class="note-list">
