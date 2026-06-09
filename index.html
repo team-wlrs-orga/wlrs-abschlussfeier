@@ -240,22 +240,19 @@
  /* ===== Modern & lebendig (dezent) ===== */
 
 /* Farben & Basics */
-:root{
-  --accent: #7fae83;       /* Salbei/Mint wie Einladung */
-  --accent-ink: #1f2f29;   /* dunkles Grün-Schwarz */
-  --paper: #f3f8df;        /* helles Mint-Creme */
-  --line: #d4af37;         /* Gold */
+:root{--accent: #b9d59d;
+--accent-ink: #3e3a2f;
+--paper: #fffdf6;
+--line: #d4af37;
 }
  body{
-  background: #dce8c7;
+  background: #eef5df;
  }
 .card{
-  background: #fffef7;
-  border-color: #d4af37;
-box-shadow: 0 2px 10px rgba(212,175,55,0.18);
-}
-.card > h2{
-  border-bottom-color: #d6b85f;
+    background: #fffdf6;
+    border: 2px solid #d4af37;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(212,175,55,0.12);
 }
 
 .btn,
@@ -273,7 +270,7 @@ section[id]{ scroll-margin-top: 84px; }
 /* Sticky Top-Navigation modernisieren */
 .nav{
   position: sticky; top: 0; z-index: 50;
-  background: rgba(255,248,239,.86);
+  background: rgba(255,253,246,.95);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--line);
   transition: box-shadow .25s ease;
