@@ -241,12 +241,32 @@
 
 /* Farben & Basics */
 :root{
-  --accent: #8fbc8f;
---accent-ink: #2f3b35;
---paper: #fffaf0;
---line: #d8c48f;
+  --accent: #7fae83;       /* Salbei/Mint wie Einladung */
+  --accent-ink: #1f2f29;   /* dunkles Grün-Schwarz */
+  --paper: #f3f8df;        /* helles Mint-Creme */
+  --line: #d6b85f;         /* Gold */
+}
+ body{
+  background: #f3f8df;
 }
 
+.card{
+  background: #fffdf2;
+  border-color: #d6b85f;
+}
+
+.card > h2{
+  border-bottom-color: #d6b85f;
+}
+
+.btn,
+.nav a.is-active{
+  background: #7fae83;
+}
+
+.nav a:hover{
+  background: #eef5d8;
+}
 /* Smooth Scroll & Anker-Offset (damit Header nix überdeckt) */
 html{ scroll-behavior: smooth; }
 section[id]{ scroll-margin-top: 84px; }
