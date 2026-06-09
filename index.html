@@ -542,42 +542,42 @@ border-bottom:2px solid #c9a227;
   border-top:1px solid #d4af37;
   border-bottom:1px solid #d4af37;
 }
-/* Fingerfood Galerie */
+/* Fingerfood kompakt */
 .food-grid{
-  display:grid !important;
-  grid-template-columns:repeat(2, minmax(0, 1fr));
-  gap:10px !important;
-  margin-top:14px !important;
- align-items:start;
+  display:block;
+  margin-top:14px;
 }
 
 .food-card{
+  display:flex;
+  gap:10px;
+  align-items:center;
   border:1px solid var(--line);
   border-radius:14px;
-  overflow:hidden;
   background:#fffdf5;
-  box-shadow:0 4px 12px rgba(0,0,0,.08);
-  min-width:0 !important;
+  box-shadow:0 3px 10px rgba(0,0,0,.08);
+  margin-bottom:10px;
+  padding:8px;
 }
 
 .food-card img{
-  width:100% !important;
-  height:85px !important;
+  width:92px !important;
+  height:72px !important;
   object-fit:cover !important;
-  display:block !important;
+  border-radius:10px;
+  flex-shrink:0;
 }
 
 .food-card h3{
-  font-size:.78rem;
-  margin:6px 6px 3px;
-  line-height:1.15;
+  font-size:.82rem;
+  margin:0 0 3px;
 }
 
 .food-card p{
-  font-size:.7rem;
-  margin:0 6px 8px;
+  font-size:.72rem;
+  margin:0;
   line-height:1.2;
-   }
+}
 </style>
 </head>
 <body
